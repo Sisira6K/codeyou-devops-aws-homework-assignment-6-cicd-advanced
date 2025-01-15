@@ -1,0 +1,21 @@
+name: Develop Pipeline
+
+on:
+  push:
+    branches: [ "develop" ]
+  pull_request:
+    branches: [ "develop" ]
+
+jobs:
+  set-up:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+           ruby-version: '3.1'
+      - name: Install Dependencies
+        run: |
+          gem install bundler
+          bundle install
+  
