@@ -3,6 +3,8 @@ name: Develop Pipeline
 on:
   push:
     branches: [ "develop" ]
+  pull_request:
+    branches: [ "develop" ]
 
 env:
   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
