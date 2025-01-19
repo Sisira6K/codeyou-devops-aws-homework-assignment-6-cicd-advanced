@@ -43,5 +43,5 @@ jobs:
         run: |
           docker build -t ${{ secrets.DOCKER_USERNAME }}/ruby-app:develop .
           docker push ${{ secrets.DOCKER_USERNAME }}/ruby-app:develop
-        working-directory: ./Dockerfile
+        working-directory: ./
     
