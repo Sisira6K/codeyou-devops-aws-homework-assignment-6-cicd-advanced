@@ -2,7 +2,7 @@ FROM ruby
 
 WORKDIR /app
 
-COPY . .
+COPY . /app
 
 RUN bundle install
 
