@@ -32,9 +32,8 @@ jobs:
 
       - name: Build and Push to Dockerhub
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/ruby-app:${{ github.sha }} .
-          docker tag ${{ secrets.DOCKER_USERNAME }}/ruby-app:${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/ruby-app:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/ruby-app:${{ github.sha }}
-          docker push ${{ secrets.DOCKER_USERNAME }}/ruby-pp:latest
+          chub.ref_name }} ${{ secrets.DOCKER_USERNAME }}/ruby-app:${{ github.ref_name }}-$(git rev-parse --short HEAD) ${{ secrets.DOCKER_USERNAME }}/ruby-app:${{ github.ref_name }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/ruby-app:${{ github.ref_name }} ${{ secrets.DOCKER_USERNAME }}/ruby-app:${{ github.ref_name }}-$(git rev-parse --short HEAD)
+        working-directory: ./
           
           
